@@ -11,5 +11,5 @@ class Config:
     ACCESS_TOKEN_EXPIRE_MINUTES = 30
     
     # Endereço para o banco de dados
-    MONGODB_DATABASE_URI = 'mongodb+srv://joaosumi:BsnQ3CwAUPGXEI25@database-n3.aozyrxl.mongodb.net/'
-    DATABASE_NAME = "n3"
+    MONGODB_DATABASE_URI = 'mongodb://localhost:27017'
+    DATABASE_NAME = "api-database"

@@ -21,7 +21,7 @@ async def all_clients(name):
     return await clients.get_clients_list(name)
 
 @router.post("/clients/create")
-async def create_clients(
+async def create_client(
     client_dto: ClientDto
 ):
     return await clients.create_client(client_dto)
