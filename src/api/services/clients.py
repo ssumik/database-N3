@@ -3,15 +3,15 @@ from fastapi import Depends
 from pymongo.errors import DuplicateKeyError
 
 from api.dto.user_dto import UserDto
-from api.dto.character_dto import CharacterDto
-from api.dto.character_dto import CharacterDto
-from api.models.user import User
-from api.models.character import Character
-from api.models.progress import Progress
-from api.dto.progress_dto import ProgressDto
 
 from typing_extensions import Annotated
 
+from api.models.client import Client
+
+async def get_clients_list(name: str):
+    async for result in Client.find(name):
+    print(result)
+    
 async def create_user(username: str, password: str):
     user = User(
         username=username,
