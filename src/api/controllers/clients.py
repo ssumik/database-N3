@@ -37,6 +37,6 @@ async def add_product(product: ProductDto, username: str):
         username=username
     )
     
-@router.post("/clients/{username}/products")
+@router.get("/clients/{username}/products")
 async def get_all_user_products(username: str):
     return await clients.get_all_user_products(username)

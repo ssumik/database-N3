@@ -2,6 +2,7 @@ from fastapi import Depends, status
 from fastapi.exceptions import HTTPException
 
 from beanie.odm.operators.find.evaluation import RegEx
+from beanie.odm.queries.find import FindMany
 
 from pymongo.errors import DuplicateKeyError
 
@@ -69,3 +70,11 @@ async def get_all_user_products(username):
             detail="Não foi possível encontrar usuário.",
         )
     return client.products
+
+async def get_clients_street(street: str):
+    clientes = await Client.find(   
+        RegEx(Client.address.street, pattern=street, options="i")
+        ).to_list()
+    if not clientes:
+        return {"message": "Nenhum Cliente foi encontrado na rua {street}!".format(street=street)}
+    return clientes
