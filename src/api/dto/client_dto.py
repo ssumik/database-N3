@@ -7,7 +7,7 @@ from api.models.address import Address
 from typing import Optional
 
 class ClientDto(BaseModel):
-    id: UUID
+    id: Optional[UUID] = UUID 
     name: str
     products: Optional[Product] = []
     address: Address
